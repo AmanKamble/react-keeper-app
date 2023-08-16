@@ -3,7 +3,7 @@ import Zoom from '@mui/material/Zoom';
 import AddIcon from '@mui/icons-material/Add';
 import Fab from '@mui/material/Fab';
 
-const CreateArea = (props) => {
+const CreateArea = ({ onAdd }) => {
     const [isExpanded, setExpanded] = useState(false);
     const [note, setNote] = useState({
         title: "",
@@ -35,11 +35,12 @@ const CreateArea = (props) => {
     }
 
     function submitNote(event) {
-        props.onAdd(note);
-        setNote({
-            title: "",
-            content: ""
-        });
+
+        (note.title && note.content !== "") ?
+            (onAdd(note), setNote({
+                title: "",
+                content: ""
+            })) : null;
         event.preventDefault();
     }
 
@@ -51,6 +52,7 @@ const CreateArea = (props) => {
                     onChange={handleChange}
                     value={note.title}
                     placeholder="Title"
+                    required
                 />
             )}
             <textarea
@@ -60,6 +62,7 @@ const CreateArea = (props) => {
                 value={note.content}
                 onFocus={() => setExpanded(true)}
                 placeholder="Take a note..."
+                required
                 rows={isExpanded ? 3 : 1}
             />
             <Zoom in={isExpanded}>
