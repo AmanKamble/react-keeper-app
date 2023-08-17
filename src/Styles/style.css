@@ -122,16 +122,13 @@ form.create-note button {
   outline: none;
 }
 
-
-
 /* Footer styling */
 footer {
-  position: absolute;
+  position: fixed;
   text-align: center;
   padding-top: 8px;
-  border-top: 1px solid rgba(245, 185, 19, 0.738);
+  background: #eee;
   bottom: 0;
-  /* width: 100%; */
   height: 2.5rem;
 }
 
