@@ -5,11 +5,11 @@ const Header = () => {
     return (
         <header>
             <h1>
-                <HighlightIcon />
+                <HighlightIcon fontSize='1rem' />
                 Keeper
             </h1>
         </header>
     )
 }
 
-export default Header;
+export default Header
